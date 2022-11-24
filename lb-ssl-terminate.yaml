@@ -1,0 +1,22 @@
+#before apply this yaml, you should have the security and secret
+#openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=nginxsvc/O=nginxsvc"
+#kubectl create secret tls ssl-certificate-secret --key tls.key --cert tls.crt
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-svc-lb-ssl-terminate
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/oci-load-balancer-tls-secret: new-ssl-certificate-secret
+spec:
+  selector:
+    app: nginx
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  - name: https
+    port: 443
+    targetPort: 80
