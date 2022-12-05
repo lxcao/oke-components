@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: fss-pv
+  name: oci-fss-pv
 spec:
   capacity:
     storage: 50Gi

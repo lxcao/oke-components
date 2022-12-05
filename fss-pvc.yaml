@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: fss-pvc
+  name: oci-fss-pvc
 spec:
   accessModes:
     - ReadWriteMany
@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 50Gi
-  volumeName: fss-pv
+  volumeName: oci-fss-pv

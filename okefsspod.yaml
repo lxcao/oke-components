@@ -7,15 +7,15 @@ spec:
   - name: web
     image: nginx
     volumeMounts:
-     - name: nfs
+     - name: oci-nfs
        mountPath: "/usr/share/nginx/html/"
     ports:
       - containerPort: 80
         name: http
   volumes:
-  - name: nfs
+  - name: oci-nfs
     persistentVolumeClaim:
-      claimName: fss-pvc
+      claimName: oci-fss-pvc
       readOnly: false
   nodeSelector:
     nodeName: worknode1
