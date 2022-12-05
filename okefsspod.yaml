@@ -1,7 +1,10 @@
+#Testing:
+#cd /usr/share/nginx/html/
+#echo worknodeX >> index.html
 apiVersion: v1
 kind: Pod
 metadata:
-  name: oke-fsspod
+  name: oke-fsspod-worknode1
 spec:
   containers:
   - name: web
@@ -19,3 +22,47 @@ spec:
       readOnly: false
   nodeSelector:
     nodeName: worknode1
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oke-fsspod-worknode2
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+     - name: oci-nfs
+       mountPath: "/usr/share/nginx/html/"
+    ports:
+      - containerPort: 80
+        name: http
+  volumes:
+  - name: oci-nfs
+    persistentVolumeClaim:
+      claimName: oci-fss-pvc
+      readOnly: false
+  nodeSelector:
+    nodeName: worknode2
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oke-fsspod-worknode3
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+     - name: oci-nfs
+       mountPath: "/usr/share/nginx/html/"
+    ports:
+      - containerPort: 80
+        name: http
+  volumes:
+  - name: oci-nfs
+    persistentVolumeClaim:
+      claimName: oci-fss-pvc
+      readOnly: false
+  nodeSelector:
+    nodeName: worknode3
