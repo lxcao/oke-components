@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oke-fsssinglepvcsinglepvsinglepoddifferentns-worknode3
+  namespace: sunmi
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+     - name: oci-nfs
+       mountPath: "/usr/share/nginx/html/"
+    ports:
+      - containerPort: 80
+        name: http
+  volumes:
+  - name: oci-nfs
+    persistentVolumeClaim:
+      claimName: oci-fss-single-pvc-single-pv-different-ns
+      readOnly: false
+  nodeSelector:
+    nodeName: worknode3
