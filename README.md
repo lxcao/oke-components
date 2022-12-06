@@ -2,4 +2,4 @@
 
 ## s1: fss-pv-pvc-multiNode-samePath
 
-![fss](./images/fss-pv-pvc-multiNode-samePath.png)
+![fss](./images/fss-pv-pvc-multiNode-samePath-1.png)
