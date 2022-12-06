@@ -1,3 +1,3 @@
 Collections of different scenarios for OKE POC. 
 
-./images/fss-pv-pvc-multiNode-samePath.png
+![fss](./images/fss-pv-pvc-multiNode-samePath.png)
