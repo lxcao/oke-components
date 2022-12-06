@@ -1,0 +1,13 @@
+# it doesn't work, because pv had already bound to oci-fss-pvc 
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: oci-fss-single-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 50Gi
+  volumeName: oci-fss-pv

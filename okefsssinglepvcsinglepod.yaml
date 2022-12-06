@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oke-fsssinglepvcsinglepod-worknode2
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+     - name: oci-nfs
+       mountPath: "/usr/share/nginx/html/"
+    ports:
+      - containerPort: 80
+        name: http
+  volumes:
+  - name: oci-nfs
+    persistentVolumeClaim:
+    # it doesn't work, because pv had already bound to oci-fss-pvc 
+      claimName: oci-fss-single-pvc
+      readOnly: false
+  nodeSelector:
+    nodeName: worknode2
