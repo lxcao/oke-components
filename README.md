@@ -2,7 +2,9 @@
 
 ## network topology: 
 VCN: 10.1.0.0/16
+
 ![subnet](./images/oke-vcn-subnet.png)
+
 ![sl](./images/oke-vcn-sl.png)
 
 
