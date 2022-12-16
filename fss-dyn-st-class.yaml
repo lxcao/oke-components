@@ -1,0 +1,13 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: fss-dyn-storage
+provisioner: fss.csi.oraclecloud.com
+parameters:
+  availabilityDomain: dTZF:EU-FRANKFURT-1-AD-2
+  mountTargetSubnetOcid: ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaayxaf3qw7ymjdasopxtcftiwjybvlcukf34d2n4seml27uf2rx4jq
+  compartmentOcid: ocid1.compartment.oc1..aaaaaaaaqmx4rrablsfh753ovosvpn4hrg7lkmjtmfvilhmm2mslqnrbfwlq
+  #kmsKeyOcid: ocid1.key.oc1.iad.anntl______usjh
+  #exportPath: /FileSystem1
+  #exportOptions: [ { "source" : "0.0.0.0/0", "requirePrivilegedSourcePort" : false, "access" : "READ_WRITE", "identitySquash" : "ROOT" } ]
+  #encryptInTransit: true
