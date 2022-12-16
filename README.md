@@ -16,4 +16,6 @@ VCN: 10.1.0.0/16
 
 ![bv](./images/blockvolume-pvc-same-node-same-ad.png)
 
+## s3: fss-dynamic-pvc-multiNode
 
+![fss-dyn](./images/fss-dyn-pvc.png)
